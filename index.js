@@ -40,10 +40,10 @@ db.connect((err) => {
   }
   console.log("Connected to database as id " + db.threadId);
 });
-
+//main page Selection Questions
 const questionsMain = [
   {
-    //What Would you like to do
+    //What Would you like to do?
     type: "list",
     message: "What would you like to do?",
     choices: [
@@ -118,6 +118,7 @@ name:"roleOfNewEmployee"
 
 
 ];
+//department Question Prompt
 const departmentQuestions = [
   {
     //name of the Employee Role You'd Like the change
@@ -166,11 +167,11 @@ const departmentQuestions = [
 ];
 
 
-app.get("db/schema.sql", (req, res) => {
+app.get("employeeTracker", (req, res) => {
   const { id } = req.params;
-  db.query(`SELECT Department FROM employeeTracker= ?`, id, (err, rows) => {
+  db.query(`SELECT department FROM employeeTracker= ?`, id, (err, rows) => {
     if (err) {
-      console.error("Error getting department: " + err.stack);
+      console.error("Error getting department: " + err);
       res.status(500).send("Error getting department from database");
       return;
     }

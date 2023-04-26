@@ -8,7 +8,7 @@ VALUES
 (6, 'Public Relations'),
 (7, 'Research and Development'),
 (8, 'Marketing'),
-(9, `${addDepartment}`);
+(9, `${addDepartment} != {newEmployeeAssignedDepartment}`);
 
 
 INSERT INTO role(id,'title', 'salary')
@@ -21,7 +21,7 @@ VALUES
 (6, 'Sales Manager','250,000'),
 (7, 'Accountant','190,000'),
 (8, 'Operations Manager','90,000'),
-(9, `${title}`, `${salaryOfNewEmployee} != ${salaryOfNewRole}`)
+(9, `${roleOfNewEmployee}`, `${salaryOfNewEmployee} != ${salaryOfNewRole}`)
 
 
 
