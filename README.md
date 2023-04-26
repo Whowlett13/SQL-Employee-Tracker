@@ -1,7 +1,7 @@
 # SQL-Employee-Tracker.github.io
 
-
 ## Table Of Contents:
+
 - Description Of Functionality
 - Installation
 - Link to Deployed Application
@@ -12,30 +12,23 @@
 
 ## Description Of Functionality:
 
-
 ## Installation:
-
 
 ## link To Deployed Application:
 
-Link to deployed link on Github: 
+Link to deployed link on Github:
 Link to deployed link on Heroku:
-
 
 ## ScreenShot of Deployed Application:
 
-Link: 
-
+Link:
 
 ## Built With:
+
 -Javascript
--
--
--
--
-
-
-
+-Express.js
+-Node.js
+-inquirer
 
 ## license:
 
@@ -43,6 +36,6 @@ MIT License
 
 Copyright (c) 2023 Wyatt Howlett
 
-
 ## Creator:
+
 Wyatt Howlett
