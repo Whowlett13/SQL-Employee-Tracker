@@ -26,9 +26,9 @@ Link:
 ## Built With:
 
 -Javascript
--Express.js
 -Node.js
--inquirer
+-Inquirer
+-MYSQL
 
 ## license:
 

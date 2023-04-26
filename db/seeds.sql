@@ -1,4 +1,4 @@
-INSERT INTO department(id, name,)
+INSERT INTO department (id, name)
 VALUES
 (1, 'Sales'),
 (2, 'Engineering'),
@@ -7,35 +7,35 @@ VALUES
 (5, 'Human Resources'),
 (6, 'Public Relations'),
 (7, 'Research and Development'),
-(8, 'Marketing'),
-(9, `${addDepartment} != {newEmployeeAssignedDepartment}`);
+(8, 'Marketing');
 
 
-INSERT INTO role(id,'title', 'salary')
+
+INSERT INTO role (id, title, salary, department_id)
 VALUES
-(1, 'HR Manager','100,000'),
-(2, 'Network Engineer','80,000'),
-(3, 'Graphic Designer', '150,000'),
-(4, 'Systems Administrator','120,000'),
-(5, 'Marketing Manager','125,000'),
-(6, 'Sales Manager','250,000'),
-(7, 'Accountant','190,000'),
-(8, 'Operations Manager','90,000'),
-(9, `${roleOfNewEmployee}`, `${salaryOfNewEmployee} != ${salaryOfNewRole}`)
+-- (1, 'HR Manager', 100000, 5),
+-- (2, 'Network Engineer', 80000, 2),
+(3, 'Graphic Designer', 150000, 7),
+(4, 'Systems Administrator', 120000, 7),
+(5, 'Marketing Manager', 125000, 8),
+(6, 'Sales Manager', 250000, 1),
+(7, 'Accountant', 190000, 3),
+(8, 'Operations Manager', 90000, 5);
 
 
 
 
-INSERT INTO employee(id,'first_name', 'last_name', 'rol_id', 'manager')
+
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
 VALUES
-(1, 'Reid', 'Young', 1, `${employeeManager}`),
-(2, 'Sarah', 'Johnson', 2,  `${employeeManager}`),
-(3, 'Emily', 'Davis',3, `${employeeManager}`),
-(4, 'Michelle', 'Chen', 4, `${employeeManager}`),
-(5, 'Daniel', 'Garcia', 5, `${employeeManager}`),
-(6, 'Benjamin', 'Patel', 6, `${employeeManager}`),
-(7, 'Jasmine', 'Kim', 7, `${employeeManager}`),
-(8, 'Dylan', 'Jones', 8,  `${employeeManager}`),
-(9, `${firstNameOfEmployee}`, `${lastNameOfEmployee}`, 9, `${employeeManager}`);
+(1, 'Reid', 'Young', 1, NULL),
+(2, 'Sarah', 'Johnson', 2, 1),
+(3, 'Emily', 'Davis', 3, NULL),
+(4, 'Michelle', 'Chen', 4,  1),
+(5, 'Daniel', 'Garcia', 5, NULL),
+(6, 'Benjamin', 'Patel', 6, 1),
+(7, 'Jasmine', 'Kim', 7,NULL),
+(8, 'Dylan', 'Jones', 8, NULL);
+
 
 
