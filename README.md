@@ -16,7 +16,7 @@
 
 ## link To Deployed Application:
 
-Link to deployed link on Github:
+Link to Github Repo: https://github.com/Whowlett13/SQL-Employee-Tracker
 Link to deployed link on Heroku:
 
 ## ScreenShot of Deployed Application:

@@ -13,8 +13,8 @@ VALUES
 
 INSERT INTO role (id, title, salary, department_id)
 VALUES
--- (1, 'HR Manager', 100000, 5),
--- (2, 'Network Engineer', 80000, 2),
+(1, 'HR Manager', 100000, 5),
+(2, 'Network Engineer', 80000, 2),
 (3, 'Graphic Designer', 150000, 7),
 (4, 'Systems Administrator', 120000, 7),
 (5, 'Marketing Manager', 125000, 8),

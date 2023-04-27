@@ -113,22 +113,14 @@ const employeeQuestions = [
     name: "employeeManager",
   },
 ];
-async function roles() {
-  let response = await inquirer.prompt(roleQuestions);
-  let response = await db.promise().query("SELECT * FROM employees");
-  console.table(response[0]);
-}
-roles();
+
 async function employees() {
-  const response = await db.promise().query("SELECT * FROM employees");
+  const response = await db.promise().query("SELECT * FROM employee");
   if (response.addEmployee === employeeQuestions);
-  employees();
   console.table(response[0]);
 }
-async function viewDepartments() {
-  const response = await db.promise().query("SELECT * FROM department");
-  console.table(response[0]);
-}
+employees();
+
 async function mainMenu() {
   const response = await inquirer.prompt(questionsMain);
   console.log(response);
@@ -189,3 +181,28 @@ const roleQuestions = [
     name: "departmentAssignment",
   },
 ];
+async function roles() {
+  const response = await inquirer.prompt(roleQuestions);
+  if (response.updateEmployeeRole === "Update Employee Role")
+    if (response.addRole === "addRole")
+      if (response.updateEmployeeRole === "addDepartment")
+        if (response.newRole === "newRole")
+          if (response.salaryOfNewRole === "salaryOfNewRole") roles();
+  console.table(response[0]);
+}
+roles();
+
+async function viewDepartments() {
+  const response = await db.promise().query("SELECT * FROM department");
+  console.table(response[0]);
+  viewDepartments();
+}
+viewDepartments();
+
+async function addDepartment() {
+  const response = await db.promise().query(roleQuestions);
+  if (response.addDepartment === "addDepartment");
+  console.table(response[0]);
+  addDepartment();
+}
+addDepartment();
