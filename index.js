@@ -115,7 +115,7 @@ const employeeQuestions = [
 ];
 
 async function employees() {
-  const response = await db.promise().query("SELECT * FROM employee");
+  const response = await inquirer.prompt(employees);
   if (response.addEmployee === employeeQuestions);
   console.table(response[0]);
 }
