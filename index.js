@@ -198,6 +198,7 @@ async function roles() {
   if (response.updateEmployeeRole === "Update Employee Role") {
     updateEmployeeRole();
     console.table(response[0]);
+  }
   // }
   // if (response.addRole === "addRole") {
   //   addRole();
@@ -233,7 +234,7 @@ async function viewDepartments() {
   console.table(response[0]);
   mainMenu();
 }
-
+//View All Roles Function
 async function viewRoles() {
   const response = await db.promise().query("SELECT * FROM role");
 
@@ -243,7 +244,7 @@ async function viewRoles() {
 viewDepartments();
 
 viewRoles();
-// roles();
+roles();
 // addDepartment();
 employees();
 mainMenu();
