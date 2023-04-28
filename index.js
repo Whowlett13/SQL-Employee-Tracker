@@ -116,14 +116,15 @@ const employeeQuestions = [
 ];
 
 async function employees() {
-  const response = await inquirer.prompt(employeeQuestions);
-
+  // const response = await inquirer.prompt(employeeQuestions);
+  const response = await db
+    .promise()
+    .query("INSERT INTO employee SET ?", employeeQuestions);
   if (response.addEmployee === "Add Employee");
   console.table(response);
 
   mainMenu();
 }
-// employees();
 
 async function mainMenu() {
   const response = await inquirer.prompt(questionsMain);
@@ -143,71 +144,89 @@ async function mainMenu() {
 // adding department
 
 //department Question Prompt
-// const roleQuestions = [
-//   {
-//     //name of the Employee Role You'd Like the change
-//     type: "input",
-//     message: "What Is The Name Of The Employee Role You Would Like To Change?",
-//     name: "updateEmployeeRole",
-//   },
-//   {
-//     //Name Of new Role
-//     type: "input",
-//     message: "What Is The Name Of The Employee Role You Would Like To Add?",
-//     name: "addRole",
-//   },
-//   {
-//     //Name of  Department You Would Like to add
-//     type: "input",
-//     message: "What Is The Name Of The Department You Would Like To Add?",
-//     name: "addDepartment",
-//   },
-//   {
-//     //name of the role in the Newly Created Department
-//     type: "input",
-//     message: "What Is The Name Of The Role?",
-//     name: "newRole",
-//   },
-//   {
-//     //Salary of the new role
-//     type: "input",
-//     message: "What Is The Salary Of The Role?",
-//     name: "salaryOfNewRole",
-//   },
-//   {
-//     //Department Assignment for new role
-//     type: "list",
-//     message: "Which Department Does This Role Belong To?",
-//     choices: [
-//       "Sales",
-//       "Engineering",
-//       "Finance",
-//       "Legal",
-//       "Human Resources",
-//       "Public Relations",
-//       "Research and Development",
-//       "Marketing",
-//     ],
-//     name: "departmentAssignment",
-//   },
-// ];
+const roleQuestions = [
+  {
+    //name of the Employee Role You'd Like the change
+    type: "input",
+    message: "What Is The Name Of The Employee Role You Would Like To Change?",
+    name: "updateEmployeeRole",
+  },
+  {
+    //Name Of new Role
+    type: "input",
+    message: "What Is The Name Of The Employee Role You Would Like To Add?",
+    name: "addRole",
+  },
+  {
+    //Name of  Department You Would Like to add
+    type: "input",
+    message: "What Is The Name Of The Department You Would Like To Add?",
+    name: "addDepartment",
+  },
+  {
+    //name of the role in the Newly Created Department
+    type: "input",
+    message: "What Is The Name Of The Role?",
+    name: "newRole",
+  },
+  {
+    //Salary of the new role
+    type: "input",
+    message: "What Is The Salary Of The Role?",
+    name: "salaryOfNewRole",
+  },
+  {
+    //Department Assignment for new role
+    type: "list",
+    message: "Which Department Does This Role Belong To?",
+    choices: [
+      "Sales",
+      "Engineering",
+      "Finance",
+      "Legal",
+      "Human Resources",
+      "Public Relations",
+      "Research and Development",
+      "Marketing",
+    ],
+    name: "departmentAssignment",
+  },
+];
+//Roles function for adding selected data to the table
+async function roles() {
+  const response = await inquirer.prompt(roleQuestions);
+  if (response.updateEmployeeRole === "Update Employee Role") {
+    updateEmployeeRole();
+    console.table(response[0]);
+  // }
+  // if (response.addRole === "addRole") {
+  //   addRole();
+  // }
+  // if (response.updateEmployeeRole === "addDepartment") {
+  //   addDepartment();
+  // }
+  // if (response.newRole === "newRole") {
+  //   viewRoles();
+  // }
+  // if (response.salaryOfNewRole === "salaryOfNewRole") {
+  //   console.table(response[0]);
+  // }
+  // if (response.departmentAssignment === "departmentAssignment") {
+  //   console.table(response[0]);
+  // }
+}
+
+//Roles Function await response of user
 // async function roles() {
 //   const response = await inquirer.prompt(roleQuestions);
-//   if (response.updateEmployeeRole === "Update Employee Role");
-//   if (response.addRole === "addRole");
-//   if (response.updateEmployeeRole === "addDepartment");
-//   if (response.newRole === "newRole");
-//   if (response.salaryOfNewRole === "salaryOfNewRole") roles();
-//   console.table(response[0]);
+//   {
+//     if (response.updateEmployeeRole === "Update Employee Role");
+//   }
+//   if (response.addRole === "addRole") {
+//   }
 // }
-// function roles (){
-//   const response = await inquirer.prompt(roleQuestions);
-//   .then(response.updateEmployeeRole === "Update Employee Role");
-//   catch(response.addRole === "addRole")
 
-// }
-// roles();
-
+//View Departments Function
 async function viewDepartments() {
   const response = await db.promise().query("SELECT * FROM department");
 
@@ -221,14 +240,10 @@ async function viewRoles() {
   console.table(response[0]);
   mainMenu();
 }
-// viewDepartments();
+viewDepartments();
 
-// async function addDepartment() {
-//   const response = await db.promise().query(roleQuestions);
-//   if (response.addDepartment === "addDepartment");
-//   console.table(response[0]);
-//   addDepartment();
-// }
+viewRoles();
+// roles();
 // addDepartment();
-
+employees();
 mainMenu();
