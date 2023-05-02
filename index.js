@@ -116,16 +116,22 @@ const employeeQuestions = [
 ];
 
 async function employees() {
-  // const response = await inquirer.prompt(employeeQuestions);
-  const response = await db
-    .promise()
-    .query("INSERT INTO employee SET ?", employeeQuestions);
-  if (response.addEmployee === "Add Employee");
-  console.table(response);
+  const response = await inquirer.prompt(employeeQuestions).then;
 
+  //inside questions list ?
+
+  db.query("INSERT INTO employee SET ?", response);
+  // console.log(response);
+  console.table(response[0]);
+  //
+  // // {
+  //   if (response.addEmployee === "Add Employee");
+  // //   console.table(response[0]);
+  // }
   mainMenu();
 }
 
+//Main Menu Function
 async function mainMenu() {
   const response = await inquirer.prompt(questionsMain);
   console.log(response);
@@ -138,12 +144,15 @@ async function mainMenu() {
   if (response.Main === "View All Roles") {
     viewRoles();
   }
-}
-// mainMenu();
-//create async for roles and employees
-// adding department
 
-//department Question Prompt
+  // if (response.Main === "View All Roles") {
+  //   viewRoles();
+  // }
+}
+
+//create async for roles and employees
+
+//Department Question Prompt
 const roleQuestions = [
   {
     //name of the Employee Role You'd Like the change
@@ -199,7 +208,19 @@ async function roles() {
     updateEmployeeRole();
     console.table(response[0]);
   }
-  // }
+
+  // adding department
+  async function addDepartment() {
+    const response = await inquirer.prompt(departmentAssignment);
+    {
+      if (response.addDepartment === "addDepartment");
+      {
+        addDepartment();
+        console.table(response[0]);
+      }
+    }
+  }
+
   // if (response.addRole === "addRole") {
   //   addRole();
   // }
@@ -241,10 +262,10 @@ async function viewRoles() {
   console.table(response[0]);
   mainMenu();
 }
-viewDepartments();
+// viewDepartments();
 
-viewRoles();
-roles();
+// viewRoles();
+// roles();
 // addDepartment();
-employees();
+// employees();
 mainMenu();
