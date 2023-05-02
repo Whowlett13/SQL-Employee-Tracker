@@ -121,11 +121,7 @@ async function employees() {
   db.query("INSERT INTO employee SET ?", response);
   // console.log(response);
   console.table(response);
-  //
-  // // {
-  //   if (response.addEmployee === "Add Employee");
-  // //   console.table(response[0]);
-  // }
+
   mainMenu();
 }
 
@@ -142,8 +138,8 @@ async function mainMenu() {
   if (response.Main === "View All Roles") {
     viewRoles();
   }
+}
 
-  
 //create async for roles and employees
 
 //Department Question Prompt
@@ -154,7 +150,7 @@ const roleQuestions = [
     message: "What Is The Name Of The Employee Role You Would Like To Change?",
     name: "updateEmployeeRole",
   },
- 
+
   // {
   //   //Name of  Department You Would Like to add
   //   type: "input",
@@ -198,16 +194,19 @@ const addRole = [
     name: "addRole",
   },
 ];
+
 //Roles function for adding selected data to the table
 async function roles() {
   const response = await inquirer.prompt(roleQuestions);
 
   db.query("INSERT INTO role SET ?", response);
   // console.log(response);
-  console.table(response[0]);
+  console.table(response);
 
   mainMenu();
 }
+roles();
+
 const addDepartment = [
   {
     //Name of  Department You Would Like to add
@@ -223,13 +222,10 @@ async function newDepartment() {
   db.query("INSERT INTO department SET ?", response);
   // console.log(response);
   console.table(response);
-newDepartment();
 
-
-
-mainMenu();
-  
+  mainMenu();
 }
+newDepartment();
 
 //View Departments Function
 async function viewDepartments() {
@@ -245,11 +241,5 @@ async function viewRoles() {
   console.table(response[0]);
   mainMenu();
 }
-// viewDepartments();
-
-// viewRoles();
-// roles();
-
-// employees();
 
 mainMenu();
