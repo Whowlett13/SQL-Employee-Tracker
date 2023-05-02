@@ -118,8 +118,6 @@ const employeeQuestions = [
 async function employees() {
   const response = await inquirer.prompt(employeeQuestions).then;
 
-  //inside questions list ?
-
   db.query("INSERT INTO employee SET ?", response);
   // console.log(response);
   console.table(response[0]);
@@ -203,22 +201,28 @@ const roleQuestions = [
 ];
 //Roles function for adding selected data to the table
 async function roles() {
-  const response = await inquirer.prompt(roleQuestions);
-  if (response.updateEmployeeRole === "Update Employee Role") {
-    updateEmployeeRole();
-    console.table(response[0]);
+  const response = await inquirer.prompt(roleQuestions).then;
+
+  db.query("INSERT INTO role SET ?", response);
+  // console.log(response);
+  console.table(response[0]);
+  updateEmployeeRole();
+
+  
   }
 
   // adding department
   async function addDepartment() {
-    const response = await inquirer.prompt(departmentAssignment);
-    {
-      if (response.addDepartment === "addDepartment");
-      {
-        addDepartment();
-        console.table(response[0]);
-      }
-    }
+    
+
+    const response = await inquirer.prompt(departmentAssignment).then;
+
+    db.query("INSERT INTO department SET ?", response);
+    // console.log(response);
+    console.table(response[0]);
+    departmentAssignment();
+
+    
   }
 
   // if (response.addRole === "addRole") {
@@ -268,4 +272,5 @@ async function viewRoles() {
 // roles();
 // addDepartment();
 // employees();
+
 mainMenu();
