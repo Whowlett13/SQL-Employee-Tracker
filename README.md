@@ -12,7 +12,11 @@
 
 ## Description Of Functionality:
 
+A command-line application that dynamically generates tables for tracking employees roles and departments.
+
 ## Installation:
+
+-The application will be invoked by using the following command: node index.js in an integrated terminal
 
 ## link To Deployed Application:
 

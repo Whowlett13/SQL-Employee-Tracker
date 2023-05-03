@@ -13,7 +13,7 @@ const db = mysql.createConnection(
     host: "localhost",
     // MySQL username,
     user: "root",
-    // TODO: Add MySQL password CHANGE SQL PASSWORD.
+    // TODO: Add MySQL password,
     password: "Soda69",
     database: "employeeTracker",
   },
@@ -49,7 +49,6 @@ const questionsMain = [
     name: "Main",
   },
 ];
-
 const employeeQuestions = [
   {
     //Add Employee
@@ -75,28 +74,7 @@ const employeeQuestions = [
     message: "What Is The Role Of The New Employee?",
     name: "role_id",
   },
-  {
-    //Salary Input For New Employee
-    type: "input",
-    message: "What Is The Role Of This New Employee?",
-    name: "salary",
-  },
-  {
-    //Department of New Employee
-    type: "list",
-    message: "Which Department Does This Role Belong To?",
-    choices: [
-      "Sales",
-      "Engineering",
-      "Finance",
-      "Legal",
-      "Human Resources",
-      "Public Relations",
-      "Research and Development",
-      "Marketing",
-    ],
-    name: "newEmployeeAssignedDepartment",
-  },
+
   {
     //New Employee Manager Selection
     type: "list",
@@ -114,6 +92,70 @@ const employeeQuestions = [
     name: "employeeManager",
   },
 ];
+// const employeeQuestions = [
+//   {
+//     //Add Employee
+//     type: "input",
+//     message: "Add Employee",
+//     name: "addEmployee",
+//   },
+//   {
+//     //First Name of New Employee
+//     type: "input",
+//     message: "What Is The First Name Of The Employee You Would Like to Add?",
+//     name: "first_name",
+//   },
+//   {
+//     //Last Name Of New Employee
+//     type: "input",
+//     message: "What Is The Last Name Of The Employee You Would Like to Add?",
+//     name: "last_name",
+//   },
+//   {
+//     //The Role Of The New Employee
+//     type: "input",
+//     message: "What Is The Role Of The New Employee?",
+//     name: "role_id",
+//   },
+//   {
+//     //Salary Input For New Employee
+//     type: "input",
+//     message: "What Is The Role Of This New Employee?",
+//     name: "salary",
+//   },
+//   {
+//     //Department of New Employee
+//     type: "list",
+//     message: "Which Department Does This Role Belong To?",
+//     choices: [
+//       "Sales",
+//       "Engineering",
+//       "Finance",
+//       "Legal",
+//       "Human Resources",
+//       "Public Relations",
+//       "Research and Development",
+//       "Marketing",
+//     ],
+//     name: "newEmployeeAssignedDepartment",
+//   },
+//   {
+//     //New Employee Manager Selection
+//     type: "list",
+//     message: "Who Is The Employees Manager?",
+//     choices: [
+//       "Reid Young",
+//       "Sarah Johnson",
+//       "Emily Davis",
+//       "Michelle Chen",
+//       "Daniel Garcia",
+//       "Benjamin Patel",
+//       "Jasmine Kim",
+//       "Dylan Jones",
+//     ],
+//     name: "employeeManager",
+//   },
+// ];
 
 async function employees() {
   const response = await inquirer.prompt(employeeQuestions);
@@ -201,7 +243,7 @@ async function roles() {
 
   db.query("INSERT INTO role SET ?", response);
   // console.log(response);
-  console.table(response);
+  console.table(response[0]);
 
   mainMenu();
 }
@@ -221,7 +263,7 @@ async function newDepartment() {
 
   db.query("INSERT INTO department SET ?", response);
   // console.log(response);
-  console.table(response);
+  console.table(response[0]);
 
   mainMenu();
 }
