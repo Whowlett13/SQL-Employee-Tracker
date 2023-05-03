@@ -162,7 +162,7 @@ async function employees() {
 
   db.query("INSERT INTO employee SET ?", response);
   // console.log(response);
-  console.table(response);
+  console.table(response[0]);
 
   mainMenu();
 }
@@ -247,7 +247,6 @@ async function roles() {
 
   mainMenu();
 }
-roles();
 
 const addDepartment = [
   {
@@ -267,7 +266,6 @@ async function newDepartment() {
 
   mainMenu();
 }
-newDepartment();
 
 //View Departments Function
 async function viewDepartments() {
